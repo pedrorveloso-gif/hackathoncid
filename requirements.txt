@@ -1,0 +1,7 @@
+streamlit
+pandas
+numpy
+altair
+statsmodels
+# Adicione a biblioteca correta do Google Gemini:
+google-genai
