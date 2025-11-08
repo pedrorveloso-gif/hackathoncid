@@ -27,7 +27,7 @@ except Exception as e:
     
 # --- ARQUIVOS DE DADOS ---
 # ATENÇÃO: Verifique se este caminho é o correto no seu ambiente!
-RAW_FILE_PATH = r"C:\Users\pedro\OneDrive\Documentos\Projetos\hackathon\household_power_consumption.txt" 
+RAW_FILE_PATH = data/household_power_consumption.txt
 
 # --- FUNÇÕES DE ML E ETL ---
 @st.cache_data(show_spinner="Carregando e limpando dados brutos...")
@@ -351,5 +351,6 @@ with col_chat:
             
         if agent_response is None:
             agent_response = generate_agent_response(user_query=user_query)
+
 
         st.success(f"EcoAgente: {agent_response}")
