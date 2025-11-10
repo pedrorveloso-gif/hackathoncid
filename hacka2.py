@@ -169,7 +169,7 @@ def generate_agent_response(anomalia_payload=None, user_query=None):
     if anomalia_payload and anomalia_payload.get("status"):
         system_prompt = "Você é o EcoAgente, focado em alertas proativos."
         context = (
-            f"Alerta: Consumo anômalo no {anomalia_payload['ativo']} às {anomalia_payload['horario_atual']}. "
+            f"Alerta: Consumo mais alto no {anomalia_payload['ativo']} às {anomalia_payload['horario_atual']}. "
             f"Pico: {anomalia_payload['consumo_atual']:.3f}kW. Threshold: {anomalia_payload['threshold']:.3f}kW. "
             "Sugira uma ação imediata de automação."
         )
@@ -259,7 +259,7 @@ st.markdown(f"**Threshold de Standby (Madrugada):** {threshold_anomalia:.3f} kW"
 
 # --- SEÇÃO DE DETECÇÃO DE ANOMALIA E CHAT (ANÁLISE DIÁRIA) ---
 st.markdown("---")
-st.header("Detecção de Anomalia e Chat")
+st.header("Detecção de maior consumo e Chat")
 
 # 1. Definição do Range de Datas
 min_date = df_completo_snapshot.index.min().date()
@@ -354,4 +354,5 @@ with col_chat:
 
 
         st.success(f"EcoAgente: {agent_response}")
+
 
